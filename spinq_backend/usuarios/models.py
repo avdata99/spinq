@@ -6,7 +6,7 @@ from django.core.validators import RegexValidator
 
 
 spinq_nombre_validator = RegexValidator(
-                            regex='[a-z_]+',
+                            regex=r'^[a-z\_]+$',
                             message='Ingresa un nombre válido. Solo letras en minúscula y guiones bajos',
                             code='inválido',
 )
