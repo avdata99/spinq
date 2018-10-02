@@ -22,6 +22,9 @@ class SpinqUser(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return '@{}'.format(self.nombre)
+        
     @classmethod
     def validate_nombre(cls, nombre):
         # posiblemente haya otras formas o lugares donde poner esto

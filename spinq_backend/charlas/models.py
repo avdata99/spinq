@@ -21,6 +21,9 @@ class Evento(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.nombre
+
 
 class Charla(models.Model):
     nombre = models.CharField(max_length=80)
@@ -35,5 +38,8 @@ class Charla(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     
+    def __str__(self):
+        return self.nombre
+
     def __str__(self):
         return self.nombre

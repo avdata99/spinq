@@ -33,5 +33,14 @@ class Opinion(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return '@{} {}/{} {}'.format(self.spinq_user.nombre, self.valoracion, self.categoria.maximo, self.charla)
 
+    def save(self, *args, **kwargs):
+        # ver que los valores no se salgan del rango de su categoria
+        if self.valoracion > self.categoria.maximo:
+            self.valoracion = self.categoria.maximo
+        elif self.valoracion < 0:
+            self.valoracion = 0
+        super().save(*args, **kwargs)
 
